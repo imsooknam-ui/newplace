@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>우리집 가계부</title>
+<style>
+/* 작은 화면에서도 여백과 표 너비를 유지합니다. */
+:root{font-family:system-ui,-apple-system,"Malgun Gothic",sans-serif;color:#233b35;background:#f4f6f2;font-synthesis:none}*{box-sizing:border-box}body{margin:0}button,input{font:inherit}button{cursor:pointer}button:focus-visible,label:focus-within{outline:3px solid #df981c;outline-offset:4px}header{border-bottom:1px solid #dce3da;background:#fff}nav{max-width:1100px;margin:auto;padding:23px 28px;display:flex;align-items:center;justify-content:space-between;gap:15px}.brand{font-size:21px;font-weight:800}.icon{display:inline-grid;place-items:center;background:#285b46;color:white;border-radius:10px;width:34px;height:34px;margin-right:9px}.badge{font-size:12px;color:#48705c;background:#edf4ed;padding:7px 11px;border-radius:30px}main{max-width:1100px;margin:auto;padding:44px 28px 28px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:2px;color:#6a806e}h1{font-size:clamp(28px,5vw,38px);letter-spacing:-1.7px;margin:12px 0}p{line-height:1.7;color:#6b796f}h2{font-size:19px;margin:0 0 8px;letter-spacing:-.5px}.upload{margin-top:28px;border:1.5px dashed #99b19a;background:#fafcf8;border-radius:18px;padding:30px;text-align:center}.upload.drag{background:#e0eddf;border-color:#285b46}.upload-symbol{font-size:27px;color:#477557}.upload strong{display:block;margin:10px 0}.upload p{font-size:13px;margin:8px 0 20px}.buttons{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}.button{display:inline-block;border:1px solid #ccd8cb;border-radius:8px;background:white;color:#345744;padding:12px 17px;font-size:14px;font-weight:650}.primary{background:#285b46;color:white;border-color:#285b46}input[type=file]{position:absolute;width:1px;height:1px;opacity:0}.note{font-size:12px;color:#798276;margin-top:16px}.error{color:#a52328;background:#fff0f0;border:1px solid #eab8b8;border-radius:10px;padding:16px;white-space:pre-line;line-height:1.7;font-size:14px;margin-top:16px}.status{margin:25px 0 16px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;font-size:13px;color:#617466;overflow-wrap:anywhere}.cards{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:14px}.card,.panel{background:white;border:1px solid #e0e6dc;border-radius:14px;padding:24px;min-width:0}.card:first-child{background:#285b46;color:white;border-color:#285b46}.card-label{font-size:13px;opacity:.8}.number{display:block;margin-top:14px;font-size:28px;font-weight:750;letter-spacing:-1px;overflow-wrap:anywhere}.number small{font-size:15px;font-weight:500;letter-spacing:0;margin-left:4px}.grid{display:grid;grid-template-columns:1.15fr 1fr;gap:18px;margin-top:20px}.panel p{font-size:12px;margin:4px 0 20px}table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:13px}th{font-size:11px;font-weight:500;color:#758276;text-align:left;border-bottom:1px solid #e3e9df;padding:10px 0}th:first-child{width:34%}th:nth-child(2){width:36%}td{padding:12px 0;border-bottom:1px solid #eff2eb;overflow-wrap:anywhere}th:not(:first-child),td:not(:first-child){text-align:right}.track{height:5px;background:#edf1e9;border-radius:6px;margin-top:7px;overflow:hidden}.fill{height:100%;background:#7c9c71;border-radius:6px}.chart{display:flex;gap:18px;overflow-x:auto;align-items:stretch;padding:6px 0 0}.month{flex:1;min-width:65px;text-align:center;font-size:12px;color:#72806e}.bar-space{height:170px;display:flex;align-items:flex-end;justify-content:center;margin:14px 0}.bar{background:#89a77a;border-radius:6px 6px 0 0;width:65%;min-width:18px}.month:nth-child(3n + 1) .bar{background:#315f49}.chart-value{color:#345340;font-size:11px;overflow-wrap:anywhere}.top{list-style:none;padding:0;margin:12px 0 0}.top li{display:flex;gap:12px;align-items:center;border-bottom:1px solid #eff2eb;padding:15px 0;font-size:13px}.rank{background:#f0f3ec;border-radius:7px;width:27px;height:27px;display:grid;place-items:center;color:#67815d;flex-shrink:0}.item-name{flex:1;overflow-wrap:anywhere}.item-amount{font-weight:650;max-width:46%;overflow-wrap:anywhere;text-align:right}.wide{grid-column:1/-1}.empty{text-align:center;padding:36px 16px;color:#71816e;line-height:1.8}.help{margin-top:24px;font-size:13px;line-height:1.9;color:#6b796f}.help summary{cursor:pointer;color:#3d5b45;font-weight:650}.help code{color:#345744;overflow-wrap:anywhere}footer{text-align:center;font-size:12px;color:#7b8678;margin:32px 0 8px}[hidden]{display:none!important}@media(max-width:640px){nav{padding:18px}.badge{font-size:10px;padding:6px 8px}.brand{font-size:18px}.icon{width:28px;height:28px;margin-right:6px}main{padding:30px 18px 20px}.upload{padding:24px 14px}.cards{grid-template-columns:1fr 1fr;gap:10px}.card{padding:18px 14px}.number{font-size:24px}.grid{grid-template-columns:1fr}.panel{padding:20px 16px}.chart{gap:10px}.wide{grid-column:auto}}
+</style>
+</head>
+<body>
+<header><nav><div class="brand"><span class="icon" aria-hidden="true">₩</span>우리집 가계부</div><span class="badge">내 브라우저에서만 분석</span></nav></header>
+<main>
+<div class="eyebrow">OUR HOME, OUR SPENDING</div><h1>우리집 지출, 한눈에 살펴봐요.</h1><p>가계부 파일 하나로 알아보는 우리집 소비 이야기.<br>복잡한 계산은 맡기고, 지출의 흐름을 확인하세요.</p>
+<section class="upload" id="drop" aria-label="CSV 파일 업로드"><div class="upload-symbol" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 30 30" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 20V5m-6 6 6-6 6 6M5 20v5h20v-5"/></svg></div><strong>가계부 CSV 파일을 여기에 놓아주세요</strong><p>파일을 끌어다 놓거나, 아래 버튼으로 선택하세요.</p><div class="buttons"><label class="button primary">CSV 파일 선택<input id="file" type="file" accept=".csv,text/csv" aria-label="CSV 파일 선택"></label><button class="button" id="example">예제 데이터로 먼저 보기</button></div><div class="note">CSV · UTF-8 / EUC-KR 지원 · 데이터는 저장하거나 전송하지 않아요</div></section>
+<div id="error" class="error" role="alert" hidden></div>
+<div id="status" class="status" role="status"><span>아직 불러온 가계부가 없어요</span><span>예제 데이터로 가볍게 시작해 보세요</span></div>
+<section class="cards" aria-label="지출 요약"><div class="card"><span class="card-label">총 지출액</span><strong class="number" id="total">—</strong></div><div class="card"><span class="card-label">분석 건수</span><strong class="number" id="count">—</strong></div><div class="card"><span class="card-label">분류 수</span><strong class="number" id="categories">—</strong></div><div class="card"><span class="card-label">월 수</span><strong class="number" id="months">—</strong></div></section>
+<div id="empty" class="empty">우리집 소비의 흐름이 궁금하다면,<br>가계부를 불러와 첫 분석을 시작해 보세요.</div>
+<section class="grid" id="results" hidden><article class="panel"><h2>어디에 가장 많이 썼을까요?</h2><p>분류별 지출 합계와 전체 지출에서 차지하는 비율이에요.</p><table><thead><tr><th scope="col">분류</th><th scope="col">금액</th><th scope="col">전체 대비 비율(%)</th></tr></thead><tbody id="categoryRows"></tbody></table></article><article class="panel"><h2>달마다 달라지는 지출</h2><p>월별 지출을 비교해 보세요. 막대가 높을수록 지출이 많아요.</p><div class="chart" id="chart" role="list" aria-label="월별 지출 합계"></div></article><article class="panel wide"><h2>지출이 큰 항목 TOP 5</h2><p>같은 이름의 항목은 하나로 모아 합산했어요.</p><ol class="top" id="top"></ol></article></section>
+<details class="help"><summary>CSV 파일은 어떻게 준비하나요?</summary><p>첫 줄에 <code>날짜,분류,항목,금액</code> 열이 필요해요. 순서는 바뀌어도 괜찮아요. 결제수단과 메모는 없어도 됩니다.<br>날짜는 <code>2026-06-02</code>처럼 적어주세요. 금액은 0 이상의 숫자로 적고, 쉼표가 있다면 <code>"1,200"</code>처럼 큰따옴표로 감싸주세요. 원 단위 소수는 두 자리까지 지원해요.<br>예: <code>2026-06-02,식비,장보기,"54,200"</code><br>엑셀에서 CSV UTF-8 또는 CSV(쉼표로 분리)로 저장하세요. 같은 폴더에 있는 파일도 직접 선택해야 합니다. 새로고침하면 분석 데이터가 사라져요.</p></details>
+<footer>우리집 가계부 · 가입 없이, 저장 없이, 우리집 브라우저 안에서.</footer>
+</main>
+<script>
+'use strict';
+// 첨부한 샘플을 내장하여 인터넷과 파일 없이도 체험합니다.
+const SAMPLE="날짜,분류,항목,금액,결제수단,메모\n2026-06-02,식비,동네마트 장보기,54200,체크카드,주간 장보기\n2026-06-03,교통비,버스 교통카드 충전,30000,체크카드,\n2026-06-05,식비,점심 김밥천국,9500,현금,\n2026-06-07,생활용품,세제 휴지 묶음,23800,신용카드,\n2026-06-08,의료비,감기약 구입,8600,현금,동네 약국\n2026-06-10,식비,마트 정육 코너,38700,신용카드,\n2026-06-12,통신비,휴대폰 요금,45000,자동이체,\n2026-06-14,문화여가,영화 관람 2인,28000,신용카드,주말 나들이\n2026-06-15,식비,동네 반찬가게,22000,현금,\n2026-06-17,교통비,택시,12400,신용카드,비 오는 날\n2026-06-18,공과금,전기요금,38200,자동이체,\n2026-06-18,공과금,수도요금,14300,자동이체,\n2026-06-20,식비,주말 장보기,61500,체크카드,\n2026-06-22,생활용품,주방 수세미 세트,7900,현금,\n2026-06-24,교육비,평생교육원 수강료,50000,체크카드,생성형AI 과정\n2026-06-25,식비,치킨 배달,21000,신용카드,\n2026-06-27,의류미용,미용실 커트,18000,현금,\n2026-06-28,식비,커피 2잔,9000,체크카드,\n2026-06-30,경조사비,친척 결혼식 축의금,100000,현금,\n2026-07-01,식비,동네마트 장보기,48300,체크카드,\n2026-07-03,교통비,버스 교통카드 충전,30000,체크카드,\n2026-07-04,생활용품,선풍기 구입,54000,신용카드,여름 준비\n2026-07-06,식비,점심 백반,10000,현금,\n2026-07-08,의료비,정형외과 진료,15500,체크카드,\n2026-07-09,식비,마트 과일,26400,신용카드,복숭아\n2026-07-12,통신비,휴대폰 요금,45000,자동이체,\n2026-07-13,문화여가,도서 구입,32000,신용카드,\n2026-07-15,식비,주말 장보기,57800,체크카드,\n2026-07-16,공과금,전기요금,62400,자동이체,에어컨 사용\n2026-07-16,공과금,수도요금,15100,자동이체,\n2026-07-18,교통비,고속버스 왕복,34000,신용카드,친정 방문\n2026-07-19,식비,외식 삼겹살,46000,신용카드,가족 외식\n2026-07-21,생활용품,모기약 방충망,18600,체크카드,\n2026-07-23,교육비,평생교육원 수강료,50000,체크카드,생성형AI 과정\n2026-07-25,의류미용,여름 티셔츠 2장,39000,신용카드,\n2026-07-26,식비,커피 3잔,13500,체크카드,\n2026-07-28,식비,동네 반찬가게,19500,현금,\n2026-07-30,문화여가,공연 관람,45000,신용카드,\n2026-08-01,식비,동네마트 장보기,52600,체크카드,\n2026-08-02,교통비,버스 교통카드 충전,30000,체크카드,\n2026-08-04,식비,점심 냉면,11000,현금,\n2026-08-05,생활용품,욕실 용품 세트,21400,신용카드,\n2026-08-07,의료비,치과 스케일링,45000,체크카드,\n2026-08-09,식비,마트 정육 코너,41200,신용카드,\n2026-08-11,통신비,휴대폰 요금,45000,자동이체,\n2026-08-12,문화여가,영화 관람 2인,30000,신용카드,\n2026-08-14,식비,주말 장보기,64300,체크카드,추석 준비\n2026-08-15,공과금,전기요금,71800,자동이체,폭염\n2026-08-15,공과금,수도요금,16200,자동이체,\n2026-08-17,교통비,택시,9800,현금,\n2026-08-18,경조사비,지인 부친상 조의금,50000,현금,\n2026-08-20,식비,외식 칼국수,24000,체크카드,\n2026-08-22,생활용품,청소도구 교체,13700,현금,\n2026-08-23,교육비,평생교육원 수강료,50000,체크카드,생성형AI 과정\n2026-08-25,의류미용,미용실 파마,65000,신용카드,\n2026-08-26,식비,커피 2잔,9000,체크카드,\n2026-08-28,식비,치킨 배달,23000,신용카드,\n2026-08-29,문화여가,근교 나들이 입장료,16000,체크카드,\n2026-08-31,식비,동네 반찬가게,20500,현금,\n";
+const $=id=>document.getElementById(id);
+const format=n=>n.toLocaleString('ko-KR',{maximumFractionDigits:2});
+const won=n=>format(n)+'원';
+let requestId=0;
+// 따옴표, 쉼표, 줄바꿈이 들어 있는 표준 CSV를 행 단위로 해석합니다.
+function parseCSV(text){
+ const rows=[];let row=[],cell='',quoted=false,closed=false,line=1,start=1;
+ const push=()=>{row.push(cell);cell='';closed=false;};
+ const finish=()=>{push();if(row.some(v=>v.trim()!==''))rows.push({values:row,line:start});row=[];};
+ text=text.replace(/^\uFEFF/,'');
+ for(let i=0;i<text.length;i++){
+  const c=text[i];
+  if(quoted){if(c==='"'){if(text[i+1]==='"'){cell+='"';i++;}else{quoted=false;closed=true;}}else{cell+=c;if(c==='\n')line++;}continue;}
+  if(c==='"'){if(cell!==''||closed)throw Error(`${line}번째 줄의 큰따옴표 위치를 확인해 주세요. 쉼표가 든 금액은 "1,200"처럼 감싸주세요.`);quoted=true;}
+  else if(c===',')push();
+  else if(c==='\n'||c==='\r'){if(c==='\r'&&text[i+1]==='\n')i++;finish();line++;start=line;}
+  else{if(closed)throw Error(`${line}번째 줄: 닫는 큰따옴표 뒤에는 쉼표나 줄바꿈을 넣어주세요.`);cell+=c;}
+ }
+ if(quoted)throw Error(`${start}번째 줄에서 시작한 큰따옴표가 닫히지 않았어요. 짝을 맞춰주세요.`);
+ finish();return rows;
+}
+// 모든 행의 필수 값과 날짜, 금액을 확인한 뒤에만 계산을 시작합니다.
+function analyze(text){
+ const rows=parseCSV(text);if(!rows.length)throw Error('파일이 비어 있어요. 첫 줄의 열 이름과 지출 내역을 넣어주세요.');
+ const headers=rows.shift().values.map(v=>v.trim());const required=['날짜','분류','항목','금액'];
+ const missing=required.filter(h=>!headers.includes(h));if(missing.length)throw Error(`필수 열이 없어요: ${missing.join(', ')}. 첫 줄에 날짜,분류,항목,금액을 넣고 CSV로 저장해 주세요.`);
+ if(new Set(headers).size!==headers.length)throw Error('같은 열 이름이 두 번 있어요. 첫 줄의 열 이름을 서로 다르게 고쳐주세요.');
+ if(!rows.length)throw Error('분석할 지출 내역이 없어요. 열 이름 아래에 지출을 한 줄 이상 넣어주세요.');
+ const idx=Object.fromEntries(required.map(k=>[k,headers.indexOf(k)]));
+ let total=0;const categories=new Map(),months=new Map(),items=new Map();const dates=[];
+ for(const {values:v,line} of rows){
+  if(v.length!==headers.length)throw Error(`${line}번째 줄의 칸 수가 첫 줄과 달라요. 쉼표가 있는 금액은 "1,200"처럼 큰따옴표로 감싸주세요.`);
+  const get=k=>v[idx[k]].trim();for(const k of required)if(!get(k))throw Error(`${line}번째 줄의 ${k} 칸이 비어 있어요. 값을 입력해 주세요.`);
+  const date=get('날짜'),m=/^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
+  if(!m)throw Error(`${line}번째 줄의 날짜를 2026-06-02처럼 연-월-일로 적어주세요.`);
+  const y=+m[1],mo=+m[2],d=+m[3],max=new Date(Date.UTC(y,mo,0)).getUTCDate();
+  if(y<1000||mo<1||mo>12||d<1||d>max)throw Error(`${line}번째 줄의 날짜가 실제 달력에 없어요. 월과 일을 확인해 주세요.`);
+  const raw=get('금액');if(raw.startsWith('-'))throw Error(`${line}번째 줄의 금액이 음수예요. 이 버전은 0원 이상의 지출만 분석해요.`);
+  if(!/^(?:\d+|[1-9]\d{0,2}(?:,\d{3})+)(?:\.\d{1,2})?$/.test(raw))throw Error(`${line}번째 줄의 금액을 확인해 주세요. 원 기호 없이 1200 또는 "1,200"처럼 숫자로 적어주세요. 소수는 두 자리까지 가능해요.`);
+  const cents=Math.round(Number(raw.replaceAll(',',''))*100);
+  if(!Number.isSafeInteger(cents)||!Number.isSafeInteger(total+cents))throw Error(`${line}번째 줄의 금액이 너무 커서 정확하게 계산할 수 없어요. 금액을 확인해 주세요.`);
+  total+=cents;for(const [map,key] of [[categories,get('분류')],[months,date.slice(0,7)],[items,get('항목')]])map.set(key,(map.get(key)||0)+cents);dates.push(date);
+ }
+ return {total,count:rows.length,categories,months,items,dates:dates.sort()};
+}
+// 사용자 파일의 문자열은 HTML로 실행하지 않고 텍스트로만 표시합니다.
+function element(tag,text,cls){const el=document.createElement(tag);if(text!==undefined)el.textContent=text;if(cls)el.className=cls;return el;}
+function reset(){for(const id of ['total','count','categories','months'])$(id).textContent='—';$('results').hidden=true;$('empty').hidden=false;for(const id of ['categoryRows','chart','top'])$(id).replaceChildren();}
+function fail(message){reset();$('error').textContent=message;$('error').hidden=false;$('status').replaceChildren(element('span','파일을 고친 뒤 다시 선택해 주세요.'));}
+function render(data,name){
+ $('error').hidden=true;$('empty').hidden=true;$('results').hidden=false;
+ $('status').replaceChildren(element('span',name),element('span',`${data.dates[0]} ~ ${data.dates.at(-1)}`));
+ for(const [id,value,unit] of [['total',data.total/100,'원'],['count',data.count,'건'],['categories',data.categories.size,'개'],['months',data.months.size,'개월']])$(id).replaceChildren(document.createTextNode(format(value)),element('small',unit));
+ $('categoryRows').replaceChildren();
+ for(const [key,value] of [...data.categories].sort((a,b)=>b[1]-a[1])){const tr=element('tr');const nameCell=element('td',key),track=element('div',undefined,'track'),bar=element('div',undefined,'fill');const percent=data.total?value/data.total*100:0;bar.style.width=percent+'%';track.append(bar);nameCell.append(track);tr.append(nameCell,element('td',won(value/100)),element('td',percent.toFixed(1)+'%'));$('categoryRows').append(tr);}
+ $('chart').replaceChildren();const max=Math.max(...data.months.values());for(const [key,value] of [...data.months].sort((a,b)=>a[0].localeCompare(b[0]))){const month=element('div',undefined,'month');month.setAttribute('role','listitem');month.setAttribute('aria-label',key+' '+won(value/100));const space=element('div',undefined,'bar-space'),bar=element('div',undefined,'bar');bar.style.height=(max?value/max*100:0)+'%';space.append(bar);month.append(element('div',won(value/100),'chart-value'),space,element('div',key));$('chart').append(month);}
+ $('top').replaceChildren();[...data.items].sort((a,b)=>b[1]-a[1]).slice(0,5).forEach(([key,value],i)=>{const li=element('li');li.append(element('span',String(i+1).padStart(2,'0'),'rank'),element('span',key,'item-name'),element('span',won(value/100),'item-amount'));$('top').append(li);});
+}
+// UTF-8을 먼저 검사하고, 한국어 CSV의 EUC-KR 인코딩으로 재시도합니다.
+function decode(bytes){try{return new TextDecoder('utf-8',{fatal:true}).decode(bytes);}catch{try{return new TextDecoder('euc-kr',{fatal:true}).decode(bytes);}catch{throw Error('글자 인코딩을 읽지 못했어요. 엑셀에서 CSV UTF-8로 다시 저장한 뒤 선택해 주세요.');}}}
+async function load(file){const id=++requestId;reset();$('error').hidden=true;if(!file)return;try{if(!/\.csv$/i.test(file.name))throw Error('CSV 파일만 읽을 수 있어요. 엑셀 파일은 CSV로 저장한 뒤 다시 선택해 주세요.');if(file.size>10*1024*1024)throw Error('파일이 너무 커요. 10MB 이하로 나누어 다시 선택해 주세요.');$('status').textContent='가계부를 읽고 있어요…';const bytes=await file.arrayBuffer();if(id!==requestId)return;const result=analyze(decode(bytes));render(result,file.name);}catch(e){if(id===requestId)fail(e.message||'파일을 읽지 못했어요. CSV 파일을 다시 선택해 주세요.');}}
+$('file').addEventListener('change',e=>{load(e.target.files[0]);e.target.value='';});
+$('example').addEventListener('click',()=>{requestId++;try{render(analyze(SAMPLE),'예제 · 가계부_샘플.csv');}catch(e){fail(e.message);}});
+// 파일을 놓았을 때 브라우저가 새 페이지로 열지 않도록 처리합니다.
+for(const event of ['dragover','drop'])window.addEventListener(event,e=>e.preventDefault());
+$('drop').addEventListener('dragover',()=>$('drop').classList.add('drag'));
+$('drop').addEventListener('dragleave',()=>$('drop').classList.remove('drag'));
+$('drop').addEventListener('drop',e=>{$('drop').classList.remove('drag');if(e.dataTransfer.files.length!==1){requestId++;fail('CSV 파일을 한 번에 하나씩 놓아주세요.');return;}load(e.dataTransfer.files[0]);});
+</script>
+</body></html>
